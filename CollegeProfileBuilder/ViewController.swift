@@ -12,17 +12,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var myTableView: UITableView!
     
-    var colleges = ["Chicago", "San Fransisco", "Dallas", "Paris", "Rome", "New York"]
+    var colleges:[College] = [College]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let collegeZero = College(Name: "Smaug", Location: "Crown", NumberOfStudents: 32)
+        colleges.append(collegeZero)
+        let collegeOne = College(Name: "Alfred", Location: "Tail", NumberOfStudents: 23)
+        colleges.append(collegeOne)
         
         myTableView.delegate = self
         myTableView.dataSource = self
         
     }
-    
     
     
     
@@ -37,10 +41,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+        let currentCollege = colleges[indexPath.row]
+        let currentCell = tableView.dequeueReusableCellWithIdentifier("MyCell")!
+        currentCell.textLabel!.text = currentCollege.name
+
+        return currentCell
         
-        var myCell = myTableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
-        myCell.textLabel?.text = colleges[indexPath.row]
-        return myCell
         
-    }}
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nvc = segue.destinationViewController as! detailsViewController
+        let currentCollege = colleges[(myTableView.indexPathForSelectedRow?.row)!]
+        nvc.currentCollege = currentCollege
+
+
+
+
+
+}
+
+
+}
 
