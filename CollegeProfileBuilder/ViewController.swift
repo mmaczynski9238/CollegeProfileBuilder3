@@ -16,17 +16,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var colleges:[College] = [College]()
 
-    
+    var nameVariable = ""
+    var locationVariable = ""
+    var numberOfStudentsVariable = 0
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collegeZero = College(Name: "College 1", Location: "Illinois", NumberOfStudents: 20000)
+        let collegeZero = College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319)
         colleges.append(collegeZero)
-        let collegeOne = College(Name: "College 2", Location: "Florida", NumberOfStudents: 23000)
+        let collegeOne = College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615)
         colleges.append(collegeOne)
-        let collegeTwo = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
+        let collegeTwo = College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000)
         colleges.append(collegeTwo)
-        var collegeThree = College(Name: "", Location: "", NumberOfStudents: 0)
+        var collegeThree = College(Name: nameVariable, Location: locationVariable, NumberOfStudents: numberOfStudentsVariable)
         self.colleges.append(collegeThree)
         
         //myTableView.delegate = self
@@ -50,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let currentCollege = colleges[indexPath.row]
         let currentCell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath)
         currentCell.textLabel!.text = currentCollege.name
+        currentCell.detailTextLabel?.text = currentCollege.location
 
         return currentCell
         
@@ -71,26 +76,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         func nameTextField(textField: UITextField!)
         {
-            print("generating the TextField")
             textField.placeholder = "Enter a college"
             nameField = textField
         }
         func locationTextField(textField: UITextField!)
         {
-            print("generating the TextField")
             textField.placeholder = "Enter the location"
             locationField = textField
         }
         func numberTextField(textField: UITextField!)
         {
-            print("generating the TextField")
             textField.placeholder = "Enter the number of students"
             numberField = textField
         }
         
         func handleCancel(alertView: UIAlertAction!)
         {
-            print("Cancelled !!")
         }
         
         var alert = UIAlertController(title: "Enter a College", message: "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -104,15 +105,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             (UIAlertAction)in
             
-           // var collegeThree = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
+            var nameVariable = nameField.text
+            
+            //var collegeThree = College(Name: "\(nameField.text)", Location: "California", NumberOfStudents: 21000)
             //self.colleges.append(collegeThree)
-           // print("Done !!")
-            //print("Item : \(tField.text)")
             self.templabel.text = nameField.text! + "  " + locationField.text! + "  " + numberField.text!
         }
             ))
         self.presentViewController(alert, animated: true, completion: {
-            print("completion block")
         })
     }
 
