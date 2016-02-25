@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         colleges.append(collegeOne)
         let collegeTwo = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
         colleges.append(collegeTwo)
+        var collegeThree = College(Name: "", Location: "", NumberOfStudents: 0)
+        self.colleges.append(collegeThree)
         
         //myTableView.delegate = self
         //myTableView.dataSource = self
@@ -62,15 +64,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func addCollegeBarButton(sender: UIBarButtonItem) {
     
-        var tField: UITextField!
+        var nameField: UITextField!
+        var locationField: UITextField!
+        var numberField: UITextField!
+
         
-        func configurationTextField(textField: UITextField!)
+        func nameTextField(textField: UITextField!)
         {
             print("generating the TextField")
-            textField.placeholder = "Enter a College"
-            tField = textField
+            textField.placeholder = "Enter a college"
+            nameField = textField
         }
-        
+        func locationTextField(textField: UITextField!)
+        {
+            print("generating the TextField")
+            textField.placeholder = "Enter the location"
+            locationField = textField
+        }
+        func numberTextField(textField: UITextField!)
+        {
+            print("generating the TextField")
+            textField.placeholder = "Enter the number of students"
+            numberField = textField
+        }
         
         func handleCancel(alertView: UIAlertAction!)
         {
@@ -79,17 +95,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var alert = UIAlertController(title: "Enter a College", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addTextFieldWithConfigurationHandler(nameTextField)
+        alert.addTextFieldWithConfigurationHandler(locationTextField)
+        alert.addTextFieldWithConfigurationHandler(numberTextField)
+
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCancel))
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{
             
             (UIAlertAction)in
             
-            let collegeThree = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
-            self.colleges.append(collegeThree)
+           // var collegeThree = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
+            //self.colleges.append(collegeThree)
            // print("Done !!")
             //print("Item : \(tField.text)")
-            self.templabel.text = tField.text
+            self.templabel.text = nameField.text! + "  " + locationField.text! + "  " + numberField.text!
         }
             ))
         self.presentViewController(alert, animated: true, completion: {
