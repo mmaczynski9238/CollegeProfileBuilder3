@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var templabel: UILabel!
     @IBOutlet weak var myTableView: UITableView!
     
     var colleges:[College] = [College]()
@@ -56,13 +58,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let nvc = segue.destinationViewController as! detailsViewController
         let currentCollege = colleges[(myTableView.indexPathForSelectedRow?.row)!]
         nvc.currentCollege = currentCollege
-
-
-
-
-
-}
-
+    }
+    
+    @IBAction func addCollegeBarButton(sender: UIBarButtonItem) {
+    
+        var tField: UITextField!
+        
+        func configurationTextField(textField: UITextField!)
+        {
+            print("generating the TextField")
+            textField.placeholder = "Enter a College"
+            tField = textField
+        }
+        
+        
+        func handleCancel(alertView: UIAlertAction!)
+        {
+            print("Cancelled !!")
+        }
+        
+        var alert = UIAlertController(title: "Enter a College", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{
+            
+            (UIAlertAction)in
+            
+            let collegeThree = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
+            self.colleges.append(collegeThree)
+           // print("Done !!")
+            //print("Item : \(tField.text)")
+            self.templabel.text = tField.text
+        }
+            ))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
 
 }
 
