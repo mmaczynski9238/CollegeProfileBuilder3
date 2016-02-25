@@ -18,13 +18,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collegeZero = College(Name: "Smaug", Location: "Crown", NumberOfStudents: 32)
+        let collegeZero = College(Name: "College 1", Location: "Illinois", NumberOfStudents: 20000)
         colleges.append(collegeZero)
-        let collegeOne = College(Name: "Alfred", Location: "Tail", NumberOfStudents: 23)
+        let collegeOne = College(Name: "College 2", Location: "Florida", NumberOfStudents: 23000)
         colleges.append(collegeOne)
+        let collegeTwo = College(Name: "College 3", Location: "California", NumberOfStudents: 21000)
+        colleges.append(collegeTwo)
         
-        myTableView.delegate = self
-        myTableView.dataSource = self
+        //myTableView.delegate = self
+        //myTableView.dataSource = self
         
     }
     
@@ -42,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let currentCollege = colleges[indexPath.row]
-        let currentCell = tableView.dequeueReusableCellWithIdentifier("MyCell")!
+        let currentCell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath)
         currentCell.textLabel!.text = currentCollege.name
 
         return currentCell

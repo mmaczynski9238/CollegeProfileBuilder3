@@ -11,11 +11,16 @@ import UIKit
 class detailsViewController: UIViewController {
     var currentCollege = College()
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberOfStudentsLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = currentCollege.name
-
+        nameLabel.text = currentCollege.name
+        locationLabel.text = currentCollege.location
+        numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"
    
     }
     
