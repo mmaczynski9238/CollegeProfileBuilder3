@@ -109,8 +109,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             //var collegeThree = College(Name: "\(nameField.text)", Location: "California", NumberOfStudents: 21000)
             //self.colleges.append(collegeThree)
-            self.templabel.text = nameField.text! + "  " + locationField.text! + "  " + numberField.text!
-        }
+            
+            //let collegeTextField = alert.textFields![0] as UITextField
+//self.colleges.append(College(Name: nameField.text!, Location: locationField.text!, NumberOfStudents:  (numberField.text!)),//
+            //tableView.reloadData(),
+            
+           // alert.addAction(addAction),
+            //self.presentViewController(alert, animated: true, completion: nil),
+            }
             ))
         self.presentViewController(alert, animated: true, completion: {
         })
