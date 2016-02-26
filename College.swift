@@ -7,19 +7,24 @@
 //
 
 import Foundation
-
+import UIKit
 
 class College
+
 {
     var name: String
     var location: String
     var numberOfStudents: Int
+    var image: String
+
     
-    init(Name n:String,Location l:String, NumberOfStudents s: Int)
+    init(Name n:String,Location l:String, NumberOfStudents s: Int, image i: String)
     {
         name = n
         location = l
         numberOfStudents = s
+        image = i
+
     }
     
     init()
@@ -27,5 +32,6 @@ class College
         name = ""
         location = ""
         numberOfStudents = 0
+        image = String
     }
 }

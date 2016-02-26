@@ -24,17 +24,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collegeZero = College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319)
+        let collegeZero = College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: UIImage(named: "mit")!)
         colleges.append(collegeZero)
-        let collegeOne = College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615)
+        let collegeOne = College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: UIImage(named: "isu")!)
         colleges.append(collegeOne)
-        let collegeTwo = College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000)
+        let collegeTwo = College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: UIImage(named: "harvard")!)
         colleges.append(collegeTwo)
-        var collegeThree = College(Name: nameVariable, Location: locationVariable, NumberOfStudents: numberOfStudentsVariable)
-        self.colleges.append(collegeThree)
-        
-        //myTableView.delegate = self
-        //myTableView.dataSource = self
+       
         
     }
     
@@ -101,25 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.addTextFieldWithConfigurationHandler(numberTextField)
 
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCancel))
-        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{
-            
-            (UIAlertAction)in
-            
-            var nameVariable = nameField.text
-            
-            //var collegeThree = College(Name: "\(nameField.text)", Location: "California", NumberOfStudents: 21000)
-            //self.colleges.append(collegeThree)
-            
-            //let collegeTextField = alert.textFields![0] as UITextField
-//self.colleges.append(College(Name: nameField.text!, Location: locationField.text!, NumberOfStudents:  (numberField.text!)),//
-            //tableView.reloadData(),
-            
-           // alert.addAction(addAction),
-            //self.presentViewController(alert, animated: true, completion: nil),
-            }
-            ))
-        self.presentViewController(alert, animated: true, completion: {
-        })
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
     }
 
 }
