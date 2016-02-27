@@ -32,6 +32,6 @@ class College
         name = ""
         location = ""
         numberOfStudents = 0
-        image = String
+        image = ""
     }
 }

@@ -15,15 +15,32 @@ class detailsViewController: UIViewController {
     @IBOutlet weak var numberOfStudentsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameEditTextField: UITextField!
+    @IBOutlet weak var locationEditTextField: UITextField!
+    @IBOutlet weak var numberEditTextField: UITextField!
+    //var college : College!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameEditTextField.text = currentCollege.name
+        locationEditTextField.text = currentCollege.location
+        numberEditTextField.text = "\(currentCollege.numberOfStudents)"
+
+    
+    
 
         self.navigationItem.title = currentCollege.name
-        nameLabel.text = currentCollege.name
+        /*nameLabel.text = currentCollege.name
         locationLabel.text = currentCollege.location
-        numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"
-   
+        numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"*/
+        imageView.image = UIImage(named: currentCollege.image)
     }
-    
+    @IBAction func EditSaveButton(sender: AnyObject) {
+        currentCollege.name = nameEditTextField.text!
+        currentCollege.location = locationEditTextField.text!
+        currentCollege.numberOfStudents = Int(numberEditTextField.text!)!
+        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        self.navigationItem.title = currentCollege.name
+}
     
 }
