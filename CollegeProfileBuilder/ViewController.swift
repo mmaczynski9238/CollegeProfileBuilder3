@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-    @IBOutlet weak var templabel: UILabel!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var editBarButtonOutlet: UIBarButtonItem!
     
@@ -32,6 +31,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit"))
         colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu"))
         colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
@@ -40,7 +47,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     /************************************/
 
     func loadList(notification: NSNotification){
-        //load data here
         self.myTableView.reloadData()
     }
     /************************************/
@@ -67,9 +73,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if(sender.tag == 0) {
             myTableView.editing = true
             sender.tag = 1
+            editBarButtonOutlet.title = "Done"
+
         } else {
             myTableView.editing = false
             sender.tag = 0
+            editBarButtonOutlet.title = "Edit"
+
         }    }
     /************************************/
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

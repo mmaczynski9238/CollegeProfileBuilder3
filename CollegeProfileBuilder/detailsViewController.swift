@@ -18,7 +18,6 @@ class detailsViewController: UIViewController {
     @IBOutlet weak var nameEditTextField: UITextField!
     @IBOutlet weak var locationEditTextField: UITextField!
     @IBOutlet weak var numberEditTextField: UITextField!
-    //var college : College!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +29,24 @@ class detailsViewController: UIViewController {
     
 
         self.navigationItem.title = currentCollege.name
+        imageView.image = UIImage(named: currentCollege.image)
+        
+        
         /*nameLabel.text = currentCollege.name
         locationLabel.text = currentCollege.location
         numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"*/
-        imageView.image = UIImage(named: currentCollege.image)
     }
-    @IBAction func EditSaveButton(sender: AnyObject) {
+    @IBAction func EditSaveButton(sender: UIButton) {
         currentCollege.name = nameEditTextField.text!
         currentCollege.location = locationEditTextField.text!
         currentCollege.numberOfStudents = Int(numberEditTextField.text!)!
+        
+        
+        
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        
+        
+        
         self.navigationItem.title = currentCollege.name
 }
     

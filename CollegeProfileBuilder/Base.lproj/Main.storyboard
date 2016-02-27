@@ -58,7 +58,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="YsL-no-L2n">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" systemItem="edit" id="82C-V4-T8A">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="82C-V4-T8A">
                             <connections>
                                 <action selector="editBarButton:" destination="BYZ-38-t0r" id="2h9-eH-MYD"/>
                             </connections>
