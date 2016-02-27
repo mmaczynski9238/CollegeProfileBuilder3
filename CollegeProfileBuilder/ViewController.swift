@@ -31,14 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit"))
         colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu"))
         colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
