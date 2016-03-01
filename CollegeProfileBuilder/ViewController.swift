@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         editBarButtonOutlet.tag = 0
 
-        colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit"))
-        colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu"))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard"))
+        colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit", Website: "https://yahoo.com"))
+        colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu", Website: "https://apple.com" ))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard", Website: "https://apple.com"))
         
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
@@ -106,6 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let currentCollege = colleges[(myTableView.indexPathForSelectedRow?.row)!]
         nvc.currentCollege = currentCollege
     }
+    
     /************************************/
      
     /************************************/
@@ -147,7 +148,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             nameField.resignFirstResponder()
                 
             let numberVariable = Int(numberField.text!)
-            self.colleges.append(College(Name: nameField.text!, Location: locationField.text! , NumberOfStudents: numberVariable!, image: ""))
+            self.colleges.append(College(Name: nameField.text!, Location: locationField.text! , NumberOfStudents: numberVariable!, image: "", Website: ""))
             self.myTableView.reloadData()
         })
         /************************************/

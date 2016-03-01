@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXX-Gk-RdL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXX-Gk-RdL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -25,18 +25,18 @@
                                         <rect key="frame" x="0.0" y="92" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4O-vE-eGs" id="MQc-kz-IPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9aD-3S-fro">
-                                                    <rect key="frame" x="68" y="6" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="68" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s9D-CY-4bE">
-                                                    <rect key="frame" x="68" y="25.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="68" y="25" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,8 +140,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-21-9kd">
-                                <rect key="frame" x="527" y="477" width="38" height="30"/>
+                                <rect key="frame" x="533" y="477" width="38" height="30"/>
                                 <state key="normal" title="Open"/>
+                                <connections>
+                                    <segue destination="uFU-J0-8Pa" kind="presentation" id="l5Q-y8-Dbk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,16 +160,17 @@
                         <outlet property="nameLabel" destination="PCu-CZ-kl2" id="Jbk-Wm-bbY"/>
                         <outlet property="numberEditTextField" destination="zBQ-fG-7lf" id="9f0-OB-0s8"/>
                         <outlet property="numberOfStudentsLabel" destination="jVs-A6-7pA" id="YDl-Tz-JGg"/>
+                        <outlet property="websiteEditTextField" destination="e9C-qm-tgm" id="Lrq-xh-1Qh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6q-iD-YJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1786" y="157"/>
         </scene>
-        <!--View Controller-->
+        <!--Website View Controller-->
         <scene sceneID="VUQ-Vw-15X">
             <objects>
-                <viewController id="uFU-J0-8Pa" sceneMemberID="viewController">
+                <viewController id="uFU-J0-8Pa" customClass="websiteViewController" customModule="CollegeProfileBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0aF-oK-rVc"/>
                         <viewControllerLayoutGuide type="bottom" id="zkx-lE-sCh"/>
@@ -174,13 +178,22 @@
                     <view key="view" contentMode="scaleToFill" id="OvD-hQ-Rh0">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Du7-OS-Msh">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="webView" destination="Du7-OS-Msh" id="r9B-mv-TF4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjw-XA-c5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805" y="1524"/>
+            <point key="canvasLocation" x="1786" y="1522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fwW-v0-ZQg">

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F50A66561C7E446F00F2A842 /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A66551C7E446F00F2A842 /* College.swift */; };
 		F50A66581C7E46F100F2A842 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A66571C7E46F100F2A842 /* detailsViewController.swift */; };
+		F555850E1C8630F400A3CD6D /* websiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555850D1C8630F400A3CD6D /* websiteViewController.swift */; };
 		F58B1C101C7BA85C00067E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B1C0F1C7BA85C00067E91 /* AppDelegate.swift */; };
 		F58B1C121C7BA85C00067E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B1C111C7BA85C00067E91 /* ViewController.swift */; };
 		F58B1C151C7BA85C00067E91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58B1C131C7BA85C00067E91 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		F50A66551C7E446F00F2A842 /* College.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = College.swift; path = ../College.swift; sourceTree = "<group>"; };
 		F50A66571C7E46F100F2A842 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		F555850D1C8630F400A3CD6D /* websiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = websiteViewController.swift; sourceTree = "<group>"; };
 		F58B1C0C1C7BA85C00067E91 /* CollegeProfileBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeProfileBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58B1C0F1C7BA85C00067E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F58B1C111C7BA85C00067E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,8 +105,9 @@
 			children = (
 				F58B1C0F1C7BA85C00067E91 /* AppDelegate.swift */,
 				F50A66551C7E446F00F2A842 /* College.swift */,
-				F50A66571C7E46F100F2A842 /* detailsViewController.swift */,
 				F58B1C111C7BA85C00067E91 /* ViewController.swift */,
+				F50A66571C7E46F100F2A842 /* detailsViewController.swift */,
+				F555850D1C8630F400A3CD6D /* websiteViewController.swift */,
 				F58B1C131C7BA85C00067E91 /* Main.storyboard */,
 				F58B1C161C7BA85C00067E91 /* Assets.xcassets */,
 				F58B1C181C7BA85C00067E91 /* LaunchScreen.storyboard */,
@@ -199,7 +202,7 @@
 				TargetAttributes = {
 					F58B1C0B1C7BA85C00067E91 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = QHE7KKX8KE;
+						DevelopmentTeam = BWYT76Q3DS;
 					};
 					F58B1C1F1C7BA85D00067E91 = {
 						CreatedOnToolsVersion = 7.2;
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F58B1C121C7BA85C00067E91 /* ViewController.swift in Sources */,
+				F555850E1C8630F400A3CD6D /* websiteViewController.swift in Sources */,
 				F58B1C101C7BA85C00067E91 /* AppDelegate.swift in Sources */,
 				F50A66561C7E446F00F2A842 /* College.swift in Sources */,
 				F50A66581C7E46F100F2A842 /* detailsViewController.swift in Sources */,

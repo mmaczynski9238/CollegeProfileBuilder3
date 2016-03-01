@@ -18,20 +18,24 @@ class detailsViewController: UIViewController {
     @IBOutlet weak var nameEditTextField: UITextField!
     @IBOutlet weak var locationEditTextField: UITextField!
     @IBOutlet weak var numberEditTextField: UITextField!
+    @IBOutlet weak var websiteEditTextField: UITextField!
 
+    
+    var website = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         nameEditTextField.text = currentCollege.name
         locationEditTextField.text = currentCollege.location
         numberEditTextField.text = "\(currentCollege.numberOfStudents)"
-
+        websiteEditTextField.text = "\(currentCollege.website)"
     
     
 
         self.navigationItem.title = currentCollege.name
         imageView.image = UIImage(named: currentCollege.image)
         
-        
+        website = websiteEditTextField.text!
+
         /*nameLabel.text = currentCollege.name
         locationLabel.text = currentCollege.location
         numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"*/
@@ -40,14 +44,18 @@ class detailsViewController: UIViewController {
         currentCollege.name = nameEditTextField.text!
         currentCollege.location = locationEditTextField.text!
         currentCollege.numberOfStudents = Int(numberEditTextField.text!)!
-        
-        
+        website = websiteEditTextField.text!
         
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         
         
         
         self.navigationItem.title = currentCollege.name
+    }
+       override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            let nvc = segue.destinationViewController as! websiteViewController
+            nvc.website2 = website
+    }
 }
-    
-}
+
+
