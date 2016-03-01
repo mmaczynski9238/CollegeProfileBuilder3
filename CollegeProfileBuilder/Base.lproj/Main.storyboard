@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXX-Gk-RdL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXX-Gk-RdL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -143,6 +143,7 @@
                                 <rect key="frame" x="533" y="477" width="38" height="30"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
+                                    <action selector="openWebsiteButton:" destination="MsB-N0-yhz" eventType="touchUpInside" id="VHP-pY-p4d"/>
                                     <segue destination="uFU-J0-8Pa" kind="presentation" id="l5Q-y8-Dbk"/>
                                 </connections>
                             </button>
@@ -188,7 +189,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="webView" destination="Du7-OS-Msh" id="r9B-mv-TF4"/>
+                        <outlet property="webView" destination="Du7-OS-Msh" id="1FY-bw-PDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjw-XA-c5x" userLabel="First Responder" sceneMemberID="firstResponder"/>

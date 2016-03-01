@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         editBarButtonOutlet.tag = 0
 
-        colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit", Website: "https://yahoo.com"))
-        colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu", Website: "https://apple.com" ))
-        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard", Website: "https://apple.com"))
+        colleges.append(College(Name: "MIT", Location: "Cambridge, MA", NumberOfStudents: 11319, image: "mit", Website: "web.mit.edu"))
+        colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu", Website: "illinoisstate.edu" ))
+        colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard", Website: "harvard.edu"))
         
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
@@ -119,6 +119,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var nameField: UITextField!
         var locationField: UITextField!
         var numberField: UITextField!
+        var websiteField: UITextField!
+
         
         func nameTextField(textField: UITextField!)
         {
@@ -135,9 +137,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             textField.placeholder = "Number Of Students"
             numberField = textField
         }
+        func websiteTextField(textField: UITextField!)
+        {
+            textField.placeholder = "Website"
+            websiteField = textField
+        }
         alert.addTextFieldWithConfigurationHandler(nameTextField)
         alert.addTextFieldWithConfigurationHandler(locationTextField)
         alert.addTextFieldWithConfigurationHandler(numberTextField)
+        alert.addTextFieldWithConfigurationHandler(websiteTextField)
+
         /************************************/
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         alert.addAction(cancelAction)
@@ -148,7 +157,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             nameField.resignFirstResponder()
                 
             let numberVariable = Int(numberField.text!)
-            self.colleges.append(College(Name: nameField.text!, Location: locationField.text! , NumberOfStudents: numberVariable!, image: "", Website: ""))
+            self.colleges.append(College(Name: nameField.text!, Location: locationField.text! , NumberOfStudents: numberVariable!, image: "", Website: websiteField.text!))
             self.myTableView.reloadData()
         })
         /************************************/

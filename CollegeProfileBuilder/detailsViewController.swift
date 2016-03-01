@@ -21,7 +21,7 @@ class detailsViewController: UIViewController {
     @IBOutlet weak var websiteEditTextField: UITextField!
 
     
-    var website = String()
+    var website1 = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         nameEditTextField.text = currentCollege.name
@@ -29,22 +29,31 @@ class detailsViewController: UIViewController {
         numberEditTextField.text = "\(currentCollege.numberOfStudents)"
         websiteEditTextField.text = "\(currentCollege.website)"
     
-    
+        var myWeb = UIWebView(frame: CGRect(x: 40, y: 100, width: 50, height: 50))
+        
+        var myString = "http://www.harvard.edu"
+        let myURL = NSURL(string: myString)
+        let myReq = NSURLRequest(URL: myURL!)
+        myWeb.loadRequest(myReq)
+        view.addSubview(myWeb)
+        
 
         self.navigationItem.title = currentCollege.name
         imageView.image = UIImage(named: currentCollege.image)
         
-        website = websiteEditTextField.text!
-
-        /*nameLabel.text = currentCollege.name
-        locationLabel.text = currentCollege.location
-        numberOfStudentsLabel.text = "Number of Students: \(currentCollege.numberOfStudents)"*/
+        website1 = currentCollege.website
     }
+    
+    @IBAction func openWebsiteButton(sender: UIButton) {
+        website1 = websiteEditTextField.text!
+    }
+    
     @IBAction func EditSaveButton(sender: UIButton) {
         currentCollege.name = nameEditTextField.text!
         currentCollege.location = locationEditTextField.text!
         currentCollege.numberOfStudents = Int(numberEditTextField.text!)!
-        website = websiteEditTextField.text!
+        currentCollege.website = websiteEditTextField.text!
+        website1 = currentCollege.website
         
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         
@@ -52,9 +61,13 @@ class detailsViewController: UIViewController {
         
         self.navigationItem.title = currentCollege.name
     }
+    
+    func setWebsite()
+    {
+        website1 = currentCollege.website    }
        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             let nvc = segue.destinationViewController as! websiteViewController
-            nvc.website2 = website
+            nvc.website2 = website1
     }
 }
 

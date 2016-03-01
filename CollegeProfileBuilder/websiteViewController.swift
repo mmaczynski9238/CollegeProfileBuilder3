@@ -9,16 +9,21 @@
 import UIKit
 
 class websiteViewController: UIViewController {
+
     var website2 = String()
     @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // var websiteURL = NSURL(string: "https://apple.com")
-        var websiteURL = NSURL(string: website2)
+        var myString = "http://www." + website2
+        let myURL = NSURL(string: myString)
+        let myReq = NSURLRequest(URL: myURL!)
+        webView.loadRequest(myReq)
+        view.addSubview(webView)
         
-        var urlRequest = NSURLRequest(URL: websiteURL!);
-        webView.loadRequest(urlRequest)
+        print(website2)
+        print("http://www." + website2)
+
     }
     
 
