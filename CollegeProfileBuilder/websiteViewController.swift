@@ -8,12 +8,17 @@
 
 import UIKit
 
-class websiteViewController: UIViewController {
+class websiteViewController: UIViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     var website2 = String()
     @IBOutlet weak var webView: UIWebView!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         var myString = "http://www." + website2
         let myURL = NSURL(string: myString)
@@ -25,6 +30,15 @@ class websiteViewController: UIViewController {
         print("http://www." + website2)
 
     }
+    
+    
+    func webViewDidStartLoad(myWebView: UIWebView ) {
+        activityView.startAnimating() }
+    
+    func webViewDidFinishLoad(myWebView:  UIWebView ) {
+        activityView.stopAnimating() }
+    
+
     
     @IBAction func doneButton(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
