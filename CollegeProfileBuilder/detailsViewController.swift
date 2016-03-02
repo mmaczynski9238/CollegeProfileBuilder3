@@ -8,9 +8,11 @@
 
 import UIKit
 
-class detailsViewController: UIViewController {
+class detailsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     var currentCollege = College()
-
+    let imagepicker = UIImagePickerController()
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberOfStudentsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -20,10 +22,13 @@ class detailsViewController: UIViewController {
     @IBOutlet weak var numberEditTextField: UITextField!
     @IBOutlet weak var websiteEditTextField: UITextField!
 
-    
     var website1 = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagepicker.delegate = self
+
+        
         nameEditTextField.text = currentCollege.name
         locationEditTextField.text = currentCollege.location
         numberEditTextField.text = "\(currentCollege.numberOfStudents)"
@@ -39,6 +44,7 @@ class detailsViewController: UIViewController {
         website1 = websiteEditTextField.text!
     }
     
+    
     @IBAction func EditSaveButton(sender: UIButton) {
         currentCollege.name = nameEditTextField.text!
         currentCollege.location = locationEditTextField.text!
@@ -51,6 +57,41 @@ class detailsViewController: UIViewController {
         
         
         self.navigationItem.title = currentCollege.name
+    }
+    
+    
+    @IBAction func cameraButton(sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        {
+            imagepicker.sourceType = UIImagePickerControllerSourceType.Camera
+            presentViewController(imagepicker, animated: true, completion: nil)
+        }
+        else
+        {
+            imagepicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            presentViewController(imagepicker, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func importPhotoButton(sender: UIButton) {
+        imagepicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        presentViewController(imagepicker, animated: true, completion: nil)
+    }
+        
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        
+        imagepicker.dismissViewControllerAnimated(true, completion: {
+            
+            
+            var selectedImage = info[UIImagePickerControllerOriginalImage]
+                as! UIImage
+            self.imageView.image = selectedImage
+        })
+        
+        
     }
     
     func setWebsite()

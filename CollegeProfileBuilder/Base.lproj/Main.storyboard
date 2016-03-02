@@ -25,18 +25,18 @@
                                         <rect key="frame" x="0.0" y="92" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4O-vE-eGs" id="MQc-kz-IPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9aD-3S-fro">
-                                                    <rect key="frame" x="68" y="5" width="32" height="20"/>
+                                                    <rect key="frame" x="68" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s9D-CY-4bE">
-                                                    <rect key="frame" x="68" y="25" width="41" height="14"/>
+                                                    <rect key="frame" x="68" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,38 +113,52 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCQ-iG-F65">
-                                <rect key="frame" x="259" y="362" width="252" height="30"/>
+                                <rect key="frame" x="259" y="424" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iru-da-Bor">
-                                <rect key="frame" x="259" y="400" width="252" height="30"/>
+                                <rect key="frame" x="259" y="462" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBQ-fG-7lf">
-                                <rect key="frame" x="259" y="439" width="252" height="30"/>
+                                <rect key="frame" x="259" y="501" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwP-G0-wmw">
-                                <rect key="frame" x="367" y="507" width="34" height="30"/>
+                                <rect key="frame" x="367" y="578" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="EditSaveButton:" destination="MsB-N0-yhz" eventType="touchUpInside" id="uPK-8h-CKM"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-qm-tgm">
-                                <rect key="frame" x="259" y="477" width="252" height="30"/>
+                                <rect key="frame" x="259" y="539" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-21-9kd">
-                                <rect key="frame" x="533" y="477" width="38" height="30"/>
+                                <rect key="frame" x="528" y="539" width="38" height="30"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="openWebsiteButton:" destination="MsB-N0-yhz" eventType="touchUpInside" id="VHP-pY-p4d"/>
                                     <segue destination="uFU-J0-8Pa" kind="presentation" id="l5Q-y8-Dbk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-jA-VCx">
+                                <rect key="frame" x="311" y="339" width="148" height="30"/>
+                                <state key="normal" title="Import a Picture"/>
+                                <connections>
+                                    <action selector="importPhotoButton:" destination="MsB-N0-yhz" eventType="touchUpInside" id="kLu-bu-HoV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4a-pt-7Pl">
+                                <rect key="frame" x="337" y="375" width="97" height="30"/>
+                                <state key="normal" title="Take a Picture"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="MsB-N0-yhz" eventType="touchUpInside" id="5hk-9P-hoN"/>
                                 </connections>
                             </button>
                         </subviews>
