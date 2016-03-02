@@ -26,16 +26,16 @@ class websiteViewController: UIViewController, UIWebViewDelegate {
         webView.loadRequest(myReq)
         view.addSubview(webView)
         
-        print(website2)
-        print("http://www." + website2)
-
     }
     
     
     func webViewDidStartLoad(myWebView: UIWebView ) {
+        self.webView.alpha = 0
         activityView.startAnimating() }
     
     func webViewDidFinishLoad(myWebView:  UIWebView ) {
+        self.webView.alpha = 1
+
         activityView.stopAnimating() }
     
 
