@@ -26,5 +26,8 @@ class websiteViewController: UIViewController {
 
     }
     
+    @IBAction func doneButton(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

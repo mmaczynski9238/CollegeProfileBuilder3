@@ -28,16 +28,7 @@ class detailsViewController: UIViewController {
         locationEditTextField.text = currentCollege.location
         numberEditTextField.text = "\(currentCollege.numberOfStudents)"
         websiteEditTextField.text = "\(currentCollege.website)"
-    
-        var myWeb = UIWebView(frame: CGRect(x: 40, y: 100, width: 50, height: 50))
         
-        var myString = "http://www.harvard.edu"
-        let myURL = NSURL(string: myString)
-        let myReq = NSURLRequest(URL: myURL!)
-        myWeb.loadRequest(myReq)
-        view.addSubview(myWeb)
-        
-
         self.navigationItem.title = currentCollege.name
         imageView.image = UIImage(named: currentCollege.image)
         
@@ -64,7 +55,8 @@ class detailsViewController: UIViewController {
     
     func setWebsite()
     {
-        website1 = currentCollege.website    }
+        website1 = currentCollege.website
+    }
        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             let nvc = segue.destinationViewController as! websiteViewController
             nvc.website2 = website1
