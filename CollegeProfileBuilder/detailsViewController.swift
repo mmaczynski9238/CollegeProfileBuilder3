@@ -98,10 +98,30 @@ class detailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     {
         website1 = currentCollege.website
     }
-       override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+   /*     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             let nvc = segue.destinationViewController as! websiteViewController
             nvc.website2 = website1
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(sender?.tag == 1) {
+            let wvc = segue.destinationViewController as! mapViewController
+            wvc.location = currentCollege.location
+        }
+    }
+*/
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "webViewSegue" {
+            let wvc = segue.destinationViewController as! websiteViewController
+            wvc.website2 = self.website1
+        } else if segue.identifier == "mapViewSegue" {
+            let mvc = segue.destinationViewController as! mapViewController
+            mvc.location = currentCollege.location
+        }
+    }
+    
+    
 }
 
 
