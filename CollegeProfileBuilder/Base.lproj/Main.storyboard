@@ -162,10 +162,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jE-Wf-Dr7">
-                                <rect key="frame" x="522" y="462" width="71" height="30"/>
+                                <rect key="frame" x="146" y="461" width="71" height="30"/>
                                 <state key="normal" title="Open Map"/>
                                 <connections>
-                                    <segue destination="ObG-2w-dyP" kind="presentation" identifier="mapViewSegue" id="gqT-6X-rZp"/>
+                                    <segue destination="ObG-2w-dyP" kind="show" identifier="mapViewSegue" id="2Ud-SG-rHy"/>
                                 </connections>
                             </button>
                         </subviews>
