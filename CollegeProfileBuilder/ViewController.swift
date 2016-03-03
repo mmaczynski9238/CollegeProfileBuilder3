@@ -32,7 +32,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         colleges.append(College(Name: "Illinois State University", Location: "Normal, Illinois", NumberOfStudents: 20615, image: "isu", Website: "illinoisstate.edu" ))
         colleges.append(College(Name: "Harvard University", Location: "Cambridge, MA", NumberOfStudents: 21000, image: "harvard", Website: "harvard.edu"))
         
-       
+        colleges.append(College(Name: "Harvard University", Location: "springfield", NumberOfStudents: 21000, image: "harvard", Website: "harvard.edu"))
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
     }

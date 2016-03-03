@@ -43,25 +43,27 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             {
                 if placemarks!.count > 1
                 {
-                    let alert = UIAlertController(title: "Select a location", message: nil, preferredStyle: .Alert)
+                    let alert = UIAlertController(title: "Select a location", message: nil, preferredStyle: .ActionSheet)
+                    
                     for placemark in placemarks!
                     {
-                        let locationAction = UIAlertAction(title: placemark.name!, style: .Default, handler: { (action) -> Void in
+                        let locationAction = UIAlertAction(title: placemark.name!, style: .Default, handler:
+                        { (action) -> Void in
                             self.displayMap(placemark)
                         })
-                        alert.addAction(locationAction)
+                            alert.addAction(locationAction)
                     }
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-                    alert.addAction(cancelAction)
-                    if let popoverController = alert.popoverPresentationController {
-                        popoverController.sourceView = self.view
-                        popoverController.sourceRect = self.view.bounds
-                    }
-                    //alert.popoverPresentationController?.sourceView = self.view
-                    //alert.popoverPresentationController?.sourceRect = self.view.bounds
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                            alert.addAction(cancelAction)
+                    
+                    alert.popoverPresentationController!.sourceView = self.view
+                    alert.popoverPresentationController!.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
+                    
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
-                else if placemarks?.count == 1{
+                    
+                else if placemarks?.count == 1
+                {
                     let placemark = placemarks!.first as CLPlacemark!
                     self.displayMap(placemark)
                 }
@@ -72,7 +74,7 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     func displayMap(placemark: CLPlacemark) {
         mapViewTextField.text = placemark.name
         let center = placemark.location!.coordinate
-        let span = MKCoordinateSpanMake(1.0, 1.0)
+        let span = MKCoordinateSpanMake(20.0, 20.0)
         let region = MKCoordinateRegionMake(center, span)
         let pin = MKPointAnnotation()
         pin.coordinate = center
@@ -85,71 +87,3 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     
 }
 
-
-
-
-/*
-        geoCodeLocation(location)
-        
-    }
-    
-    func geoCodeLocation(Location: String)
-    {
-        let myGeoCode = CLGeocoder()
-        myGeoCode.geocodeAddressString(Location) { (placeMarks, error) -> Void in
-            if error != nil
-            {
-                print("error")
-            }
-            else
-            {
-                self.displayMap((placeMarks?.first)!)
-            }
-        }
-    }
-    
-    
-    
-    
-    func displayMap(placemark: CLPlacemark)
-    {
-        let myPin = MKPointAnnotation()
-        location = placemark.name!
-        let myLocation = placemark
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake((myLocation.location?.coordinate)!, span)
-        mapView.setRegion(region, animated: true)
-        myPin.coordinate = (myLocation.location?.coordinate)!
-        myPin.title = placemark.name
-        mapView.addAnnotation(myPin)
-            }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
