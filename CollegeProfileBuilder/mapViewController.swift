@@ -41,9 +41,10 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             }
             else
             {
+                let alert = UIAlertController(title: "Select a location", message: nil, preferredStyle: .ActionSheet)
+
                 if placemarks!.count > 1
                 {
-                    let alert = UIAlertController(title: "Select a location", message: nil, preferredStyle: .ActionSheet)
                     
                     for placemark in placemarks!
                     {
@@ -62,11 +63,20 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
                     
-                /*else if placemarks?.count == 1
+                else if placemarks?.count == 1
                 {
                     let placemark = placemarks!.first as CLPlacemark!
-                    self.displayMap(placemark)
-                }*/
+                    let locationAction = UIAlertAction(title: placemark.name!, style: .Default, handler:
+                        { (action) -> Void in
+                            self.displayMap(placemark)
+                    })
+                    alert.addAction(locationAction)
+                    //self.displayMap(placemark)
+                }
+                alert.popoverPresentationController!.sourceView = self.view
+                alert.popoverPresentationController!.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
+                self.presentViewController(alert, animated: true, completion: nil)
+
             }
         }
     }
