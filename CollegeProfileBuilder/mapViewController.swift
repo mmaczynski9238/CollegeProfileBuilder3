@@ -19,7 +19,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     var location : String = "";
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapViewTextField.text = location
+        mapViewTextField.delegate = self
 
         findLocation(location)
     }
@@ -30,11 +31,10 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         findLocation(locationName)
         return true
     }
-    
     func findLocation(locationName: String)
     {
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(locationName) { (placemarks, error) -> Void in
+        geocoder.geocodeAddressString(location) { (placemarks, error) -> Void in
             if error != nil
             {
                 print(error)
@@ -62,11 +62,11 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
                     
-                else if placemarks?.count == 1
+                /*else if placemarks?.count == 1
                 {
                     let placemark = placemarks!.first as CLPlacemark!
                     self.displayMap(placemark)
-                }
+                }*/
             }
         }
     }
@@ -74,7 +74,7 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     func displayMap(placemark: CLPlacemark) {
         mapViewTextField.text = placemark.name
         let center = placemark.location!.coordinate
-        let span = MKCoordinateSpanMake(20.0, 20.0)
+        let span = MKCoordinateSpanMake(1.0, 1.0)
         let region = MKCoordinateRegionMake(center, span)
         let pin = MKPointAnnotation()
         pin.coordinate = center

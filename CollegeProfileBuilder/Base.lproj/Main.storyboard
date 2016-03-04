@@ -201,6 +201,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-CL-SLq">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ObG-2w-dyP" id="5r7-XX-y17"/>
+                                </connections>
+                            </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-RH-hSa">
                                 <rect key="frame" x="261" y="110" width="246" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -209,12 +215,6 @@
                                     <outlet property="delegate" destination="ObG-2w-dyP" id="nsz-OG-d3L"/>
                                 </connections>
                             </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-CL-SLq">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ObG-2w-dyP" id="5r7-XX-y17"/>
-                                </connections>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
