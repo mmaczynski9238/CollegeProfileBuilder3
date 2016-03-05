@@ -25,12 +25,12 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let locationName = textField.text!
+        var location = textField.text!
         textField.resignFirstResponder()
-        findLocation(locationName)
+        findLocation(location)
         return true
     }
-    func findLocation(locationName: String)
+    func findLocation(location: String)
     {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (placemarks, error) -> Void in
@@ -43,9 +43,6 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                 print(placemarks)
                 let alert = UIAlertController(title: "Select a location", message: nil, preferredStyle: .ActionSheet)
 
-//                if placemarks?.count != 1
-//                {
-                
                     for placemark in placemarks!
                     {
                         let locationAction = UIAlertAction(title: placemark.name!, style: .Default, handler:
@@ -54,22 +51,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                         })
                             alert.addAction(locationAction)
                     }
-                        //let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-                          //  alert.addAction(cancelAction)
-                    
-                    
- //               }
-                    
-//                else if placemarks?.count == 1
-//                {
-//                    let placemark = placemarks!.first as CLPlacemark!
-//                    let locationAction = UIAlertAction(title: placemark.name!, style: .Default, handler:
-//                        { (action) -> Void in
-//                            self.displayMap(placemark)
-//                    })
-//                    alert.addAction(locationAction)
-//                    //self.displayMap(placemark)
-//                }
+                
+                
                 alert.popoverPresentationController!.sourceView = self.view
                 alert.popoverPresentationController!.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
                 self.presentViewController(alert, animated: true, completion: nil)
