@@ -17,6 +17,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     @IBOutlet weak var mapViewTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     var location : String = "";
+    /****************************************/
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapViewTextField.text = location
@@ -24,7 +26,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         findLocation(location)
     }
     
-    
+    /****************************************/
+
     @IBAction func mapTypeSegmentedControl(sender: UISegmentedControl) {
         switch (sender.selectedSegmentIndex)
         {
@@ -40,13 +43,15 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         }
     }
     
-    
+    /****************************************/
     func textFieldShouldReturn(mapViewTextField: UITextField) -> Bool {
         var location = mapViewTextField.text!
         mapViewTextField.resignFirstResponder()
         findLocation(location)
         return true
     }
+    /****************************************/
+
     func findLocation(location: String)
     {
         let geocoder = CLGeocoder()
@@ -69,7 +74,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                             alert.addAction(locationAction)
                     }
                 
-                
+                /****************************************/
+
                 alert.popoverPresentationController!.sourceView = self.view
                 alert.popoverPresentationController!.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -77,6 +83,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             }
         }
     }
+    
+    /****************************************/
     
     func displayMap(placemark: CLPlacemark) {
         mapViewTextField.text = placemark.name
