@@ -107,6 +107,7 @@ class detailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         } else if segue.identifier == "mapViewSegue" {
             let mvc = segue.destinationViewController as! mapViewController
             mvc.location = currentCollege.name
+            
         }
     }
     

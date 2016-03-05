@@ -24,9 +24,26 @@ class mapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         findLocation(location)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        var location = textField.text!
-        textField.resignFirstResponder()
+    
+    @IBAction func mapTypeSegmentedControl(sender: UISegmentedControl) {
+        switch (sender.selectedSegmentIndex)
+        {
+        case 0:
+            mapView.mapType = .Standard
+        case 1:
+            mapView.mapType = .Hybrid
+        case 2:
+            mapView.mapType = .Satellite
+        default:
+            mapView.mapType = .Standard
+        
+        }
+    }
+    
+    
+    func textFieldShouldReturn(mapViewTextField: UITextField) -> Bool {
+        var location = mapViewTextField.text!
+        mapViewTextField.resignFirstResponder()
         findLocation(location)
         return true
     }

@@ -25,18 +25,18 @@
                                         <rect key="frame" x="0.0" y="92" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4O-vE-eGs" id="MQc-kz-IPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9aD-3S-fro">
-                                                    <rect key="frame" x="68" y="5" width="32" height="20"/>
+                                                    <rect key="frame" x="68" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s9D-CY-4bE">
-                                                    <rect key="frame" x="68" y="25" width="41" height="14"/>
+                                                    <rect key="frame" x="68" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-CL-SLq">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="-5" y="64" width="773" height="960"/>
                                 <connections>
                                     <outlet property="delegate" destination="ObG-2w-dyP" id="5r7-XX-y17"/>
                                 </connections>
@@ -212,13 +212,32 @@
                                 <items>
                                     <navigationItem id="Oif-0J-KvW">
                                         <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="DkU-PG-6qk">
-                                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Qei-Lk-yMR">
-                                                <rect key="frame" x="20" y="7" width="728" height="30"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="oeD-EU-cdf">
+                                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="eue-UE-9Vi">
+                                                <rect key="frame" x="20" y="7" width="491" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ObG-2w-dyP" id="AT9-NX-ZiN"/>
+                                                </connections>
                                             </textField>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="KHM-mL-oR2">
+                                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="2aj-1A-OLe">
+                                                <rect key="frame" x="531" y="7" width="217" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <segments>
+                                                    <segment title="Standard"/>
+                                                    <segment title="Hybrid"/>
+                                                    <segment title="Satellite"/>
+                                                </segments>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="mapTypeSegmentedControl:" destination="ObG-2w-dyP" eventType="valueChanged" id="Nwq-bg-ndm"/>
+                                                </connections>
+                                            </segmentedControl>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -226,10 +245,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="mapView" destination="nfH-CL-SLq" id="P2v-ec-nGq"/>
-                        <outlet property="mapViewTextField" destination="Qei-Lk-yMR" id="KtU-Oh-a3b"/>
+                        <outlet property="mapViewTextField" destination="eue-UE-9Vi" id="b1n-b1-2ES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtS-Pa-ayt" userLabel="First Responder" sceneMemberID="firstResponder"/>
